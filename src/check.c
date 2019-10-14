@@ -6,7 +6,7 @@
 /*   By: pcorlys- <pcorlys-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 14:34:22 by pcorlys-          #+#    #+#             */
-/*   Updated: 2019/10/14 03:00:53 by pcorlys-         ###   ########.fr       */
+/*   Updated: 2019/10/14 23:32:23 by pcorlys-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	check_word(char *str, t_base *base)
 		if ((str[q] < '0' || str[q] > '9') && str[q] != ' ' && str[q] != '\t' && str[q] != '-')
 			result_ok(-3);
 		if ((str[q] == ' ' || str[q] == '\t' || str[q] == '-') && (str[q + 1] >= '0' && str[q + 1] <= '9'))
-			add_list(base, str, q);
+			init_stek_a(base, str, q);
 		else if (q == 0 && (str[q] >= '0' && str[q] <= '9'))
-			add_list(base, str, q);
+			init_stek_a(base, str, q);
 		q++;
 	}
 }
@@ -40,6 +40,7 @@ void	check_str(char **str, int size, t_base *base)
 		q++;
 	}
 	check_duplicate(base);
+	base->temp = base->head;
 }
 
 void	check_duplicate(t_base *base)

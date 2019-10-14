@@ -9,6 +9,7 @@ SRC_FILES = main.c\
 			check.c\
 			list_operations.c\
 			result.c\
+			rules.c\
 
 SRCS 		= $(addprefix $(SRC)/, $(SRC_FILES))
 OBJS		= $(addprefix $(OBJ)/, $(SRC_FILES:c=o))
@@ -19,7 +20,7 @@ INC_LIB = -I ./libft/includes
 LIB_NAME = ./libft/libftprintf.a
 LIBS_LINK = -L $(LIB)
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = #-Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 

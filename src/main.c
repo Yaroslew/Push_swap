@@ -6,11 +6,34 @@
 /*   By: pcorlys- <pcorlys-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 21:32:25 by pcorlys-          #+#    #+#             */
-/*   Updated: 2019/10/14 03:01:30 by pcorlys-         ###   ########.fr       */
+/*   Updated: 2019/10/15 02:00:31 by pcorlys-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static void print_list(t_base *base)
+{
+	int q = 0;
+	t_nod *stek_a = base->temp;
+	t_nod *stek_b = base->temp_b;
+
+
+	while (q < base->size_stek_a + base->size_stek_b)
+	{
+		if (q < base->size_stek_a)
+			ft_printf("%d", stek_a->data);
+		ft_printf("    |    ");
+		if (q < base->size_stek_b)
+			ft_printf("%d", stek_b->data);
+		ft_printf("\n");
+		stek_a = stek_a->next;
+		stek_b = stek_b->next;
+		q++;
+	}
+	ft_printf("=%d  |  %d=\n", base->size_stek_a, base->size_stek_b);
+}
+
 
 int	main(int ac, char **av)
 {
@@ -21,10 +44,19 @@ int	main(int ac, char **av)
 	base = init_base();
 	check_str(av, ac, base);
 	write_min_max(base);
+	init_stek_b(base);
 
 
+	//s_rule(base, "SA");
+	p_rule(base, "PB");
+//	p_rule(base, "PB");
+//	p_rule(base, "PB");
 
-	//write_list(base);
+	print_list(base);
+
+	//r_rule(base, "RA");
+	//print_list(base);
+
 
 }
 
