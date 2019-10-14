@@ -6,7 +6,7 @@
 /*   By: pcorlys- <pcorlys-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 21:32:25 by pcorlys-          #+#    #+#             */
-/*   Updated: 2019/10/13 09:10:56 by pcorlys-         ###   ########.fr       */
+/*   Updated: 2019/10/14 03:01:30 by pcorlys-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,11 @@ int	main(int ac, char **av)
 		return (0);
 	base = init_base();
 	check_str(av, ac, base);
+	write_min_max(base);
+
+
+
+	//write_list(base);
 
 }
+

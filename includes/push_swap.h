@@ -6,12 +6,14 @@
 /*   By: pcorlys- <pcorlys-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 21:33:20 by pcorlys-          #+#    #+#             */
-/*   Updated: 2019/10/13 11:37:02 by pcorlys-         ###   ########.fr       */
+/*   Updated: 2019/10/14 02:58:06 by pcorlys-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_PUSH_SWAP_H
 #define PUSH_SWAP_PUSH_SWAP_H
+
+// проверка на переполнение инта
 
 #include "../libft/includes/libft.h"
 #include "../libft/includes/get_next_line.h"
@@ -27,9 +29,12 @@ typedef struct s_base
 {
 	t_nod		*head;
 	t_nod		*temp;
+
 	int			size_stek_a;
 	int			size_stek_b;
 
+	int			max;
+	int			min;
 }				t_base;
 
 
@@ -40,6 +45,8 @@ void	check_word(char *str, t_base *base);
 void	check_duplicate(t_base *base);
 
 void	add_list(t_base *base, char *str, int q);
+void	write_min_max(t_base *base);
+void	write_list(t_base *base);
 
 void	result_ok(int a);
 
