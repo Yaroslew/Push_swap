@@ -6,7 +6,7 @@
 /*   By: pcorlys- <pcorlys-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 08:21:20 by pcorlys-          #+#    #+#             */
-/*   Updated: 2019/10/15 02:02:34 by pcorlys-         ###   ########.fr       */
+/*   Updated: 2019/10/15 23:20:00 by pcorlys-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,17 @@ t_nod	*add_list(t_nod *now)
 
 t_nod	*del_list(t_nod *now)
 {
-	t_nod	*next_old;
+	t_nod	*del;
+	t_nod	*save_next;
 
-	next_old = now->next;
-	now->back->next = now->next;
-	next_old->back = now->back;
-	now = next_old;
-	now->next = NULL;
-	now->back = NULL;
-	free(now);
-	return (now);
+	del = now;
+	save_next = now->next;
+
+	now->next->back = now->back;
+	now->back->next = save_next;
+	free(del);
+
+	return (save_next);
 }
 
 void	write_min_max(t_base *base)

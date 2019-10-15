@@ -28,10 +28,11 @@ all: DIR $(NAME)
 
 DIR:
 	@mkdir -p $(OBJ)
+	@make -C $(LIB)
 
 $(NAME): $(OBJS)
 	@gcc $(OBJS) -g $(LIB_NAME) $(LIBS_LINK) -o $(NAME)
-	@echo Relinking
+	@echo good compile!
 
 
 $(OBJ)/%.o:$(SRC)/%.c

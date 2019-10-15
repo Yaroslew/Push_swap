@@ -6,7 +6,7 @@
 /*   By: pcorlys- <pcorlys-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 15:29:33 by pcorlys-          #+#    #+#             */
-/*   Updated: 2019/10/15 01:16:22 by pcorlys-         ###   ########.fr       */
+/*   Updated: 2019/10/15 23:16:50 by pcorlys-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,18 @@ void	init_stek_b(t_base *base)
 		result_ok(-1);
 	base->temp_b = base->head_b;
 	base->size_stek_b = 0;
-	while (q < base->size_stek_a)
-	{
-		if(!(base->temp_b->next = malloc(sizeof(t_nod))))
-			result_ok(-1);
-		base->temp_b->data = 0;
-		base->temp_b->next->back = base->temp_b;
-		base->temp_b = base->temp_b->next;
-		q++;
-	}
+//	while (q < base->size_stek_a)
+//	{
+//		if(!(base->temp_b->next = malloc(sizeof(t_nod))))
+//			result_ok(-1);
+//		base->temp_b->data = 0;
+//		base->temp_b->next->back = base->temp_b;
+//		base->temp_b = base->temp_b->next;
+//		q++;
+//	}
 	base->temp_b->next = base->head_b;
-	base->head_b->back = base->temp_b;
-	base->temp_b = base->head_b;
+	base->temp_b->back = base->head_b;
+//	base->temp_b = base->head_b;
 }
 
 

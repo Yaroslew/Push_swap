@@ -6,7 +6,7 @@
 /*   By: pcorlys- <pcorlys-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 21:32:25 by pcorlys-          #+#    #+#             */
-/*   Updated: 2019/10/15 02:00:31 by pcorlys-         ###   ########.fr       */
+/*   Updated: 2019/10/15 22:07:14 by pcorlys-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ static void print_list(t_base *base)
 	t_nod *stek_a = base->temp;
 	t_nod *stek_b = base->temp_b;
 
+
+//	while (q < base->size_stek_a)
+//	{
+//		ft_printf("%d\n", stek_a->data);
+//		stek_a = stek_a->next;
+//		q++;
+//	}
 
 	while (q < base->size_stek_a + base->size_stek_b)
 	{
@@ -31,7 +38,7 @@ static void print_list(t_base *base)
 		stek_b = stek_b->next;
 		q++;
 	}
-	ft_printf("=%d  |  %d=\n", base->size_stek_a, base->size_stek_b);
+	ft_printf("=%d  |  %d=\n\n", base->size_stek_a, base->size_stek_b);
 }
 
 
@@ -46,16 +53,15 @@ int	main(int ac, char **av)
 	write_min_max(base);
 	init_stek_b(base);
 
-
-	//s_rule(base, "SA");
 	p_rule(base, "PB");
-//	p_rule(base, "PB");
-//	p_rule(base, "PB");
+	p_rule(base, "PB");
+	p_rule(base, "PB");
 
 	print_list(base);
-
-	//r_rule(base, "RA");
-	//print_list(base);
+	r_rule(base, "RR");
+	print_list(base);
+	rr_rule(base, "RRR");
+	print_list(base);
 
 
 }
