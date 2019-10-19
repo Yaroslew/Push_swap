@@ -51,7 +51,6 @@ void	write_instruction_start(t_base *base)
 			}
 			else
 			{
-
 				base->res = strjoin_my(base->res, "RA|");
 				r_rule(base, "RA");
 			}
@@ -62,3 +61,67 @@ void	write_instruction_start(t_base *base)
 		check = check->next;
 	}
 }
+
+void	start_sort(t_base *base)
+{
+	t_nod *check;
+
+	check = base->temp;
+	if (check->data < check->next->data && check->next->data < check->back->data)
+		return;
+	if (check->data < check->next->data && check->next->data > check->back->data && check->data < check->back->data)
+	{
+		s_rule(base, "SA");
+		r_rule(base, "RA");
+		strjoin_my(base->res, "SA|");
+		strjoin_my(base->res, "RA|");
+		return;
+	}
+	if (check->data < check->next->data && check->next->data > check->back->data)
+	{
+		rr_rule(base, "RRA");
+		strjoin_my(base->res, "RRA|");
+		return;
+	}
+	if (check->data > check->next->data && check->next->data < check->back->data && check->data < check->back->data)
+	{
+		s_rule(base, "SA");
+		strjoin_my(base->res, "SA|");
+		return;
+	}
+	if (check->data > check->next->data && check->next->data < check->back->data)
+	{
+		r_rule(base, "RA");
+		strjoin_my(base->res, "RA|");
+		return;
+	}
+	if (check->data > check->next->data && check->next->data > check->back->data)
+	{
+		s_rule(base, "SA");
+		strjoin_my(base->res, "SA|");
+		r_rule(base, "RA");
+		strjoin_my(base->res, "RA|");
+		r_rule(base, "RA");
+		strjoin_my(base->res, "RA|");
+		return;
+	}
+
+}
+
+//void	sort(t_base *base)
+//{
+//	int q;
+//	int r;
+//
+//	q = 0;
+//	r = 0;
+//	while (r < base->size_stek_a)
+//	{
+//		while (q < base->size_stek_b)
+//		{
+//
+//		}
+//		q = 0;
+//		r++;
+//	}
+//}

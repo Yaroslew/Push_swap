@@ -38,6 +38,11 @@ typedef struct s_base
 	int			max;
 	int			min;
 	char		*res;
+
+	int			ind_a;
+	int			ind_b;
+	int			turns;
+
 }				t_base;
 
 
@@ -64,7 +69,7 @@ void 	rr_rule(t_base *base, char *str);
 // sort
 void	start(t_base *base);
 void	write_instruction_start(t_base *base);
-
+void	start_sort(t_base *base);
 
 
 void	print_list(t_base *base);

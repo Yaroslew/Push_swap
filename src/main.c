@@ -46,8 +46,9 @@ int	main(int ac, char **av)
 	write_min_max(base);
 
 	start(base);
+	start_sort(base);
 	print_list(base);
-	ft_printf("%d %d \n %s", base->max, base->min,  base->res);
+	//ft_printf("%d %d \n %s", base->max, base->min,  base->res);
 
 }
 
