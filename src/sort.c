@@ -44,18 +44,17 @@ void	write_instruction_start(t_base *base)
 	{
 		if ((check->data != base->min) && (check->data != base->max))
 		{
-			temp_str = base->res;
 			if (q == 0)
 			{
-				base->res = ft_strjoin(base->res, "PB|");
+				base->res = strjoin_my(base->res, "PB|");
 				p_rule(base, "PB");
 			}
 			else
 			{
-				base->res = ft_strjoin(base->res, "RA|");
+
+				base->res = strjoin_my(base->res, "RA|");
 				r_rule(base, "RA");
 			}
-			free(temp_str);
 			q = -1;
 			check = base->temp->back;
 		}

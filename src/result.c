@@ -21,6 +21,6 @@ void	result_ok(int a)
 	if (a == -2)
 		ft_printf("Duplication\n");
 	if (a == -3)
-		ft_printf("!!!\n");
+		ft_printf("---\n");
 	exit(0);
 }

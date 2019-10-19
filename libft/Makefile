@@ -77,7 +77,8 @@ SRC = ft_memset.c\
 	ft_iterative_power.c \
 	ft_swap.c \
 	ft_printf.c \
-	get_next_line.c
+	get_next_line.c\
+	strjoin_my.c
 
 
 PRINTF = print_c.c\

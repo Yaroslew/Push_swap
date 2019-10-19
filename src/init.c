@@ -27,9 +27,8 @@ t_base *init_base()
 	base->head_b = NULL;
 	base->size_stek_a = 0;
 	base->size_stek_b = 0;
-	if(!(base->res = malloc(sizeof(char) * 1)))
-		result_ok(-1);
-	base->res[0] = ' ';
+	base->res = NULL;
+
 
 	return (base);
 }

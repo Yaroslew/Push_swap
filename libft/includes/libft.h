@@ -127,6 +127,7 @@ void				ft_swap(int *a, int *b);
 int					ft_pow(int nb, int power);
 int					ft_count_if(char **tab, int (*f) (char*));
 int					ft_printf(const char *fmt, ...);
+char				*strjoin_my(char *first, char *second);
 /*
 ** ----------------------------- Printf utils----------------------------------
 */
