@@ -58,7 +58,11 @@ void	p_rule(t_base *base, char *str)
 			return;
 		base->size_stek_b++;
 		base->size_stek_a--;
-		base->temp_b = add_list(base->temp_b);
+		if (base->size_stek_b == 1)
+			base->temp_b = add_list(NULL);
+		else
+			base->temp_b = add_list(base->temp_b);
+
 		base->temp_b->data = base->temp->data;
 		base->temp = del_list(base->temp);
 	}

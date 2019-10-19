@@ -37,11 +37,11 @@ typedef struct s_base
 
 	int			max;
 	int			min;
+	char		*res;
 }				t_base;
 
 
 t_base	*init_base();
-void	init_stek_b(t_base *base);
 
 void	check_str(char **str, int size, t_base *base);
 void	check_word(char *str, t_base *base);
@@ -50,8 +50,6 @@ void	check_duplicate(t_base *base);
 void	init_stek_a(t_base *base, char *str, int q);
 void	write_min_max(t_base *base);
 void	write_list(t_base *base);
-
-
 
 void	result_ok(int a);
 
@@ -62,5 +60,13 @@ void	s_rule(t_base *base, char *str);
 void	p_rule(t_base *base, char *str);
 void	r_rule(t_base *base, char *str);
 void 	rr_rule(t_base *base, char *str);
+
+// sort
+void	start(t_base *base);
+void	write_instruction_start(t_base *base);
+
+
+
+void	print_list(t_base *base);
 
 #endif

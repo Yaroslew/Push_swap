@@ -10,6 +10,7 @@ SRC_FILES = main.c\
 			list_operations.c\
 			result.c\
 			rules.c\
+			sort.c\
 
 SRCS 		= $(addprefix $(SRC)/, $(SRC_FILES))
 OBJS		= $(addprefix $(OBJ)/, $(SRC_FILES:c=o))

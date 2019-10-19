@@ -16,6 +16,14 @@ t_nod	*add_list(t_nod *now)
 {
 	t_nod	*back_old;
 
+	if (now == NULL)
+	{
+		if (!(back_old = malloc(sizeof(t_nod))))
+			result_ok(-1);
+		back_old->next = back_old;
+		back_old->back = back_old;
+		return (back_old);
+	}
 	back_old = now->back;
 	if (!(now->back = malloc(sizeof(t_nod))))
 		result_ok(-1);

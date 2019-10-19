@@ -23,35 +23,16 @@ t_base *init_base()
 	base->head->next = NULL;
 	base->head->back = base->head;
 	base->temp = base->head;
+	base->temp_b = NULL;
+	base->head_b = NULL;
 	base->size_stek_a = 0;
 	base->size_stek_b = 0;
+	if(!(base->res = malloc(sizeof(char) * 1)))
+		result_ok(-1);
+	base->res[0] = ' ';
 
 	return (base);
 }
-
-void	init_stek_b(t_base *base)
-{
-	int q;
-
-	q = 1;
-	if(!(base->head_b = malloc(sizeof(t_nod))))
-		result_ok(-1);
-	base->temp_b = base->head_b;
-	base->size_stek_b = 0;
-//	while (q < base->size_stek_a)
-//	{
-//		if(!(base->temp_b->next = malloc(sizeof(t_nod))))
-//			result_ok(-1);
-//		base->temp_b->data = 0;
-//		base->temp_b->next->back = base->temp_b;
-//		base->temp_b = base->temp_b->next;
-//		q++;
-//	}
-	base->temp_b->next = base->head_b;
-	base->temp_b->back = base->head_b;
-//	base->temp_b = base->head_b;
-}
-
 
 void	init_stek_a(t_base *base, char *str, int q)
 {
