@@ -45,10 +45,13 @@ int	main(int ac, char **av)
 	check_str(av, ac, base);
 	write_min_max(base);
 
-	start(base);
-	start_sort(base);
 	print_list(base);
-	//ft_printf("%d %d \n %s", base->max, base->min,  base->res);
 
+	pre-sort(base);
+
+	sort(base);
+
+
+	print_list(base);
 }
 

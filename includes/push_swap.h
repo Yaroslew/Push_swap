@@ -14,6 +14,7 @@
 #define PUSH_SWAP_PUSH_SWAP_H
 
 // проверка на переполнение инта
+// если список уже отсортирован или сортировка без стека б
 
 #include "../libft/includes/libft.h"
 #include "../libft/includes/get_next_line.h"
@@ -39,9 +40,17 @@ typedef struct s_base
 	int			min;
 	char		*res;
 
-	int			ind_a;
-	int			ind_b;
-	int			turns;
+	int			save_turns;
+	int			count_turns;
+
+	char		*save_rules;
+	char 		*buf_rules;
+
+	int			delta_a;
+	int			delta_b;
+
+//	int			ind_a;
+//	int			ind_b;
 
 }				t_base;
 
@@ -67,9 +76,8 @@ void	r_rule(t_base *base, char *str);
 void 	rr_rule(t_base *base, char *str);
 
 // sort
-void	start(t_base *base);
+void	pre-sort(t_base *base);
 void	write_instruction_start(t_base *base);
-void	start_sort(t_base *base);
 
 
 void	print_list(t_base *base);

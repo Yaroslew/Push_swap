@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	start(t_base *base)
+void	pre-sort(t_base *base)
 {
 	int q;
 
@@ -29,7 +29,6 @@ void	start(t_base *base)
 		q++;
 	}
 	write_instruction_start(base);
-
 }
 
 void	write_instruction_start(t_base *base)
@@ -46,12 +45,12 @@ void	write_instruction_start(t_base *base)
 		{
 			if (q == 0)
 			{
-				base->res = strjoin_my(base->res, "PB|");
+				base->res = strjoin_my(base->res, "PB\n");
 				p_rule(base, "PB");
 			}
 			else
 			{
-				base->res = strjoin_my(base->res, "RA|");
+				base->res = strjoin_my(base->res, "RA\n");
 				r_rule(base, "RA");
 			}
 			q = -1;
@@ -62,66 +61,34 @@ void	write_instruction_start(t_base *base)
 	}
 }
 
-void	start_sort(t_base *base)
+
+void	sort(t_base *base)
 {
-	t_nod *check;
+	int ind_a;
+	int ind_b;
 
-	check = base->temp;
-	if (check->data < check->next->data && check->next->data < check->back->data)
-		return;
-	if (check->data < check->next->data && check->next->data > check->back->data && check->data < check->back->data)
+	ind_a = 0;
+	ind_b = 0;
+	while (base->size_stek_b > 0)
 	{
-		s_rule(base, "SA");
-		r_rule(base, "RA");
-		strjoin_my(base->res, "SA|");
-		strjoin_my(base->res, "RA|");
-		return;
+		base->count_turns = 0;
+		base->save_turns = -1;
+		while (ind_a < base->size_stek_a)
+		{
+			while (ind_b < base->size_stek_b)
+			{
+				count_turns(base, ind_a, ind_b);
+				ind_b++;
+			}
+			ind_a++;
+			ind_b = 0;
+		}
+		ind_a = 0;
+		release_step(base);
 	}
-	if (check->data < check->next->data && check->next->data > check->back->data)
-	{
-		rr_rule(base, "RRA");
-		strjoin_my(base->res, "RRA|");
-		return;
-	}
-	if (check->data > check->next->data && check->next->data < check->back->data && check->data < check->back->data)
-	{
-		s_rule(base, "SA");
-		strjoin_my(base->res, "SA|");
-		return;
-	}
-	if (check->data > check->next->data && check->next->data < check->back->data)
-	{
-		r_rule(base, "RA");
-		strjoin_my(base->res, "RA|");
-		return;
-	}
-	if (check->data > check->next->data && check->next->data > check->back->data)
-	{
-		s_rule(base, "SA");
-		strjoin_my(base->res, "SA|");
-		r_rule(base, "RA");
-		strjoin_my(base->res, "RA|");
-		r_rule(base, "RA");
-		strjoin_my(base->res, "RA|");
-		return;
-	}
-
 }
 
-//void	sort(t_base *base)
-//{
-//	int q;
-//	int r;
-//
-//	q = 0;
-//	r = 0;
-//	while (r < base->size_stek_a)
-//	{
-//		while (q < base->size_stek_b)
-//		{
-//
-//		}
-//		q = 0;
-//		r++;
-//	}
-//}
+void	release_step(t_base *base)
+{
+	
+}

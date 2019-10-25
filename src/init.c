@@ -20,6 +20,7 @@ t_base *init_base()
 		result_ok(-1);
 	if (!(base->head = malloc(sizeof(t_nod))))
 		result_ok(-1);
+
 	base->head->next = NULL;
 	base->head->back = base->head;
 	base->temp = base->head;
@@ -28,6 +29,8 @@ t_base *init_base()
 	base->size_stek_a = 0;
 	base->size_stek_b = 0;
 	base->res = NULL;
+	base->save_turns = -1;
+
 
 
 	return (base);
