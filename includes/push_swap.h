@@ -76,9 +76,17 @@ void	r_rule(t_base *base, char *str);
 void 	rr_rule(t_base *base, char *str);
 
 // sort
-void	pre-sort(t_base *base);
+void	pre_sort(t_base *base);
 void	write_instruction_start(t_base *base);
 
+void	sort(t_base *base);
+void	release_step(t_base *base);
+void	count_turns(t_base *base, int a, int b);
+
+void	step_down(t_base *base);
+void	step_up(t_base *base);
+void	step_alone_a(t_base *base);
+void	step_alone_b(t_base *base);
 
 void	print_list(t_base *base);
 

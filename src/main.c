@@ -47,8 +47,7 @@ int	main(int ac, char **av)
 
 	print_list(base);
 
-	pre-sort(base);
-
+	pre_sort(base);
 	sort(base);
 
 

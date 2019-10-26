@@ -46,7 +46,7 @@ void	step_alone_a(t_base *base)
 		{
 			base->delta_a++;
 			base->count_turns++;
-			base->buf_rules = trjoin_my(base->buf_rules, "rra\n");
+			base->buf_rules = strjoin_my(base->buf_rules, "rra\n");
 		}
 	}
 	else
@@ -55,7 +55,7 @@ void	step_alone_a(t_base *base)
 		{
 			base->delta_a--;
 			base->count_turns++;
-			base->buf_rules = trjoin_my(base->buf_rules, "ra\n");
+			base->buf_rules = strjoin_my(base->buf_rules, "ra\n");
 		}
 	}
 }
@@ -69,7 +69,7 @@ void	step_alone_b(t_base *base)
 		{
 			base->delta_b++;
 			base->count_turns++;
-			base->buf_rules = trjoin_my(base->buf_rules, "rrb\n");
+			base->buf_rules = strjoin_my(base->buf_rules, "rrb\n");
 		}
 	}
 	else
@@ -78,7 +78,7 @@ void	step_alone_b(t_base *base)
 		{
 			base->delta_b--;
 			base->count_turns++;
-			base->buf_rules = trjoin_my(base->buf_rules, "rb\n");
+			base->buf_rules = strjoin_my(base->buf_rules, "rb\n");
 		}
 	}
 }

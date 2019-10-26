@@ -37,7 +37,6 @@ static int	delta(t_base *base, int ex)
 
 void	count_turns(t_base *base, int a, int b)
 {
-
 	base->delta_a = delta(base, a);
 	base->delta_b = delta(base, b);
 	if (base->delta_a < 0 && base->delta_b < 0)
@@ -49,6 +48,6 @@ void	count_turns(t_base *base, int a, int b)
 	if (base->delta_b != 0 && base->delta_b != base->size_stek_b)
 		step_alone_b(base);
 
-	if (base->count_turns < base>save_turns || base->save_turns == -1)
-		save_temp_result(base, a , b);
+	if (base->count_turns < base->save_turns || base->save_turns == -1)
+		save_temp_result(base);
 }
