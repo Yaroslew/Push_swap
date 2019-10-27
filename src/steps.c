@@ -71,7 +71,7 @@ void	step_alone_b(t_base *base)
 	if (base->delta_b < 0)
 	{
 		base->delta_b *= -1;
-		while (base->delta_b < base->size_stek_b)
+		while (base->delta_b < base->size_stek_b - 1)
 		{
 			base->delta_b++;
 			base->count_turns++;

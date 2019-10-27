@@ -45,7 +45,7 @@ int	main(int ac, char **av)
 	check_str(av, ac, base);
 	write_min_max(base);
 
-//	print_list(base);
+	print_list(base);
 	check_true_sort(base);
 
 	pre_sort(base);
@@ -56,7 +56,7 @@ int	main(int ac, char **av)
 //	print_list(base);
 
 	final_sort(base);
-//	print_list(base);
+	print_list(base);
 
 //	ft_printf("===\n%s\n===\n", base->res);
 }
