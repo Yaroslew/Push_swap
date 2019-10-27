@@ -32,7 +32,6 @@ t_base *init_base()
 	base->save_turns = -1;
 
 
-
 	return (base);
 }
 
@@ -57,5 +56,4 @@ void	init_stek_a(t_base *base, char *str, int q)
 	base->temp->next->back = base->temp;
 	base->head->back = base->temp->next;
 	base->temp = base->temp->next;
-
 }

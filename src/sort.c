@@ -34,11 +34,7 @@ void	sort(t_base *base)
 			ind_b = 0;
 		}
 		ind_a = 0;
-//		print_list(base);
-//		ft_printf("save===========\n%s================\n", base->save_rules);
 		release_step(base);
-//		print_list(base);
-//		ft_printf("\n-------------------------------------------------\n");
 	}
 
 }

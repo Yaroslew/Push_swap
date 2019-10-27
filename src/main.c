@@ -46,14 +46,12 @@ int	main(int ac, char **av)
 	write_min_max(base);
 
 	check_true_sort(base);
-
 	pre_sort(base);
-
 	sort(base);
-
-
 	final_sort(base);
 
 	ft_printf("%s", base->res);
+	free_base(base);
+
 }
 

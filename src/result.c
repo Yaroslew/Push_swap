@@ -14,15 +14,15 @@
 
 void	result_ok(int a)
 {
-	if (a == 1)
+	if (a == 14)
 		ft_printf("Ok\n");
-	if (a == 0)
+	if (a == 0 || a == -1 || a == -2 || a == -3)
 		ft_printf("Error\n");
-	if (a == -1)
-		ft_printf("Malloc\n");
-	if (a == -2)
-		ft_printf("Duplication\n");
-	if (a == -3)
-		ft_printf("---\n");
+//	if (a == -1)
+//		ft_printf("Malloc\n");
+//	if (a == -2)
+//		ft_printf("Duplication\n");
+//	if (a == -3)
+//		ft_printf("---\n");
 	exit(0);
 }

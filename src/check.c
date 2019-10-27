@@ -43,19 +43,22 @@ void	check_str(char **str, int size, t_base *base)
 	base->temp = base->head;
 }
 
-void	check_duplicate(t_base *base) {
+void	check_duplicate(t_base *base)
+{
+	t_nod *sum;
 	t_nod *check;
 	int q;
 	int r;
-	t_nod *sum;
 	int pizdec;
 
 	q = 0;
 	sum = base->temp;
-	while (r < base->size_stek_a) {
+	while (r < base->size_stek_a)
+	{
 		pizdec = 0;
 		check = base->temp;
-		while (q < base->size_stek_a) {
+		while (q < base->size_stek_a)
+		{
 			if (sum->data == check->data)
 				pizdec++;
 			q++;
@@ -83,4 +86,6 @@ void	check_long_int(int data, char *str, int q)
 		r++;
 		q++;
 	}
+	free(check);
+	check = NULL;
 }

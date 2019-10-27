@@ -38,7 +38,6 @@ char	*strjoin_my(char *first, char *second)
 
 	q = 0;
 	r = 0;
-	//ft_printf(" %s %s     \n-----\n ", first, second);
 	if (!first && !second)
 		return (NULL);
 	sum = sum_len(first) + sum_len(second);
@@ -54,8 +53,8 @@ char	*strjoin_my(char *first, char *second)
 		}
 		q = 0;
 		free(first);
+		first = NULL;
 	}
-
 	if (second != NULL)
 	{
 		while (second[q])
@@ -65,8 +64,6 @@ char	*strjoin_my(char *first, char *second)
 			r++;
 		}
 	}
-
 	res[r] = '\0';
-	//ft_printf(" %s  \n\n======================\n\n", res);
 	return (res);
 }
