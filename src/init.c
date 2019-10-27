@@ -42,6 +42,7 @@ void	init_stek_a(t_base *base, char *str, int q)
 	if (!(base->head->next))
 	{
 		base->head->data = ft_atoi(str + q);
+		check_long_int(base->head->data, str, q);
 		base->head->next = base->head;
 		base->temp = base->head->next;
 		base->max = base->head->data;
@@ -51,6 +52,7 @@ void	init_stek_a(t_base *base, char *str, int q)
 	if (!(base->temp->next = malloc(sizeof(t_nod))))
 		result_ok(-1);
 	base->temp->next->data = ft_atoi(str + q);
+	check_long_int(base->temp->next->data, str, q);
 	base->temp->next->next = base->head;
 	base->temp->next->back = base->temp;
 	base->head->back = base->temp->next;

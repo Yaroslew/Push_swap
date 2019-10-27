@@ -14,8 +14,6 @@
 #define PUSH_SWAP_PUSH_SWAP_H
 
 // проверка на переполнение инта
-// если список уже отсортирован или сортировка без стека б
-// две цифры 1 не считает за дубликаты
 // пуш из пустого стека
 
 #include "../libft/includes/libft.h"
@@ -92,6 +90,7 @@ void	step_alone_b(t_base *base);
 
 void	final_sort(t_base *base);
 void	check_true_sort(t_base *base);
+void	check_long_int(int data, char *str, int q);
 
 void	print_list(t_base *base);
 
