@@ -12,7 +12,10 @@ SRC_FILES = main.c\
 			rules.c\
 			sort.c\
 			turns.c\
-			steps.c
+			steps.c\
+			pre_sort.c\
+			final_sort.c\
+			check_true_sort.c
 
 SRCS 		= $(addprefix $(SRC)/, $(SRC_FILES))
 OBJS		= $(addprefix $(OBJ)/, $(SRC_FILES:c=o))

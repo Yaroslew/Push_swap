@@ -10,63 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * соединяет первую и вторую строку, зафришив предыдущие.
- * Возвращает NULL, если обе строки NULL.
- *
- */
+#include "../includes/push_swap.h"
 
-#include "../includes/libft.h"
-
-static int	sum_len(char *str)
+void	final_sort(t_base *base)
 {
 	int q;
+	t_nod *check;
 
 	q = 0;
-	if (str == NULL)
-		return (0);
-	q = ft_strlen(str);
-	return (q);
-}
-
-char	*strjoin_my(char *first, char *second)
-{
-	int q;
-	int r;
-	char *res;
-	int sum;
-
-	q = 0;
-	r = 0;
-	//ft_printf(" %s %s     \n-----\n ", first, second);
-	if (!first && !second)
-		return (NULL);
-	sum = sum_len(first) + sum_len(second);
-	if (!(res = malloc(sizeof(char) * (sum + 1))))
-		return (NULL);
-	if (first != NULL)
+	check = base->temp;
+	while (check->data != base->min)
 	{
-		while (first[q])
-		{
-			res[r] = first[q];
-			q++;
-			r++;
-		}
-		q = 0;
-		free(first);
+		q++;
+		check = check->next;
 	}
-
-	if (second != NULL)
+	if (q < base->size_stek_a / 2)
 	{
-		while (second[q])
+
+		while (q > 0)
 		{
-			res[r] = second[q];
-			q++;
-			r++;
+			base->res = strjoin_my(base->res, "ra\n");
+			r_rule(base, "ra");
+			q--;
 		}
 	}
-
-	res[r] = '\0';
-	//ft_printf(" %s  \n\n======================\n\n", res);
-	return (res);
+	else
+	{
+		while (q < base->size_stek_a)
+		{
+			base->res = strjoin_my(base->res, "rra\n");
+			rr_rule(base, "rra");
+			q++;
+		}
+	}
+	//free(base->temp_b);
+	base->temp_b = NULL;
 }

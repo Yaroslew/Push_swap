@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   result.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcorlys- <pcorlys-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 14:48:21 by pcorlys-          #+#    #+#             */
-/*   Updated: 2019/10/13 12:07:02 by pcorlys-         ###   ########.fr       */
+/*   Created: 2019/10/10 21:32:25 by pcorlys-          #+#    #+#             */
+/*   Updated: 2019/10/15 22:07:14 by pcorlys-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	result_ok(int a)
+void	check_true_sort(t_base *base)
 {
-	if (a == 1)
-		ft_printf("Ok\n");
-	if (a == 0)
-		ft_printf("Error\n");
-	if (a == -1)
-		ft_printf("Malloc\n");
-	if (a == -2)
-		ft_printf("Duplication\n");
-	if (a == -3)
-		ft_printf("---\n");
-	exit(0);
+	int q;
+	t_nod	*check;
+
+	q = 0;
+	check = base->temp;
+	while (q < base->size_stek_a - 1)
+	{
+		if (check->data > check->next->data)
+			return;
+		check = check->next;
+		q++;
+	}
+	result_ok(1);
 }

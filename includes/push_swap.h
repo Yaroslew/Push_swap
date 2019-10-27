@@ -15,6 +15,8 @@
 
 // проверка на переполнение инта
 // если список уже отсортирован или сортировка без стека б
+// две цифры 1 не считает за дубликаты
+// пуш из пустого стека
 
 #include "../libft/includes/libft.h"
 #include "../libft/includes/get_next_line.h"
@@ -87,6 +89,9 @@ void	step_down(t_base *base);
 void	step_up(t_base *base);
 void	step_alone_a(t_base *base);
 void	step_alone_b(t_base *base);
+
+void	final_sort(t_base *base);
+void	check_true_sort(t_base *base);
 
 void	print_list(t_base *base);
 
