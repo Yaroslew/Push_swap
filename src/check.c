@@ -46,26 +46,32 @@ void	check_str(char **str, int size, t_base *base)
 void	check_duplicate(t_base *base)
 {
 	t_nod	*check;
-	t_nod	*finish;
 	int 	q;
 	int 	r;
+	t_nod	*sum;
+	int 	pizdec;
 
 	q = 0;
-	r = q + 1;
-	check = base->head->next;
-	finish = base->head;
-	while (q < base->size_stek_a)
+	sum = base->temp;
+	while (r < base->size_stek_a)
 	{
-		while (r < base->size_stek_a)
+		pizdec = 0;
+		check = base->temp;
+		while (q < base->size_stek_a)
 		{
-			if (finish->data == check->data)
-				result_ok(-2);
+			if (sum->data == check->data)
+				pizdec++;
+			q++;
 			check = check->next;
-			r++;
 		}
-		q++;
-		r = q + 1;
-		finish = finish->next;
-		check = finish->next->next;
+		sum = sum->next;
+		q = 0;
+		if (pizdec > 1)
+			result_ok(-2);
+		r++;
 	}
+
+
+
+
 }
