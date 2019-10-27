@@ -51,6 +51,7 @@ int	main(int ac, char **av)
 	final_sort(base);
 
 	ft_printf("%s", base->res);
+	free(base->res);
 	free_base(base);
 
 }

@@ -44,4 +44,5 @@ void	final_sort(t_base *base)
 		}
 	}
 	base->temp_b = NULL;
+
 }
