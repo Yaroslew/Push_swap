@@ -12,29 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-void	print_list(t_base *base)
-{
-	int q = 0;
-	t_nod *stek_a = base->temp;
-	t_nod *stek_b = base->temp_b;
-
-	while (q < base->size_stek_a + base->size_stek_b)
-	{
-		if (q < base->size_stek_a)
-			ft_printf("%d", stek_a->data);
-		ft_printf("    |    ");
-		if (q < base->size_stek_b)
-			ft_printf("%d", stek_b->data);
-		ft_printf("\n");
-		stek_a = stek_a->next;
-		if (stek_b != NULL)
-			stek_b = stek_b->next;
-		q++;
-	}
-	ft_printf("=%d  |  %d=\n\n", base->size_stek_a, base->size_stek_b);
-}
-
-
 int	main(int ac, char **av)
 {
 	t_base *base;
@@ -55,7 +32,6 @@ int	main(int ac, char **av)
 	ft_printf("%s", base->res);
 	free(base->res);
 	free_base(base);
-
 
 }
 

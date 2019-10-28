@@ -75,20 +75,15 @@ void	check_duplicate(t_base *base)
 	}
 }
 
-void	check_long_int(int data, char *str, int q)
+void	check_long_int(int data, char *str)
 {
 	char *check;
 	int	r;
 
 	r = 0;
 	check = ft_itoa(data);
-	while (check[r])
-	{
-		if (check[r] != str[q])
-			result_ok(-1);
-		r++;
-		q++;
-	}
+	if (ft_strstr(str, check) == NULL)
+		result_ok(-1);
 	free(check);
 	check = NULL;
 }

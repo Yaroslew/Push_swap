@@ -13,8 +13,6 @@
 #ifndef PUSH_SWAP_PUSH_SWAP_H
 #define PUSH_SWAP_PUSH_SWAP_H
 
-// пуш из пустого стека
-
 #include "../libft/includes/libft.h"
 #include "../libft/includes/get_next_line.h"
 
@@ -51,7 +49,7 @@ t_base	*init_base();
 void	check_str(char **str, int size, t_base *base);
 void	check_word(char *str, t_base *base);
 void	check_duplicate(t_base *base);
-void	check_long_int(int data, char *str, int q);
+void	check_long_int(int data, char *str);
 int		check_true_sort(t_base *base);
 
 void	init_stek_a(t_base *base, char *str, int q);
@@ -85,6 +83,6 @@ void	final_sort(t_base *base);
 void	gnl(t_base *base);
 void	free_base(t_base *base);
 
-void	print_list(t_base *base);
+void	show_mess(int a);
 
 #endif

@@ -12,11 +12,20 @@
 
 #include "../includes/push_swap.h"
 
-void	gnl(t_base *base)
+static void	check_valid_rule(char *line)
 {
-	char *line;
+	if (ft_strcmp(line, "rr") != 0 && ft_strcmp(line, "ra") != 0 &&	ft_strcmp(line, "rb") != 0 &&
+	ft_strcmp(line, "rrr") != 0 && ft_strcmp(line, "rra") != 0 && ft_strcmp(line, "rrb") != 0 &&
+	ft_strcmp(line, "sa") != 0 && ft_strcmp(line, "sb") != 0 &&	ft_strcmp(line, "ss") != 0 &&
+	ft_strcmp(line, "pa") != 0 && ft_strcmp(line, "pb") != 0)
+		result_ok(0);
+}
 
-	while (get_next_line(1, &line))
+void		gnl(t_base *base)
+{
+	char	*line;
+
+	while (get_next_line(0, &line))
 	{
 		if (ft_strcmp(line, "rr") == 0 || ft_strcmp(line, "ra") == 0 ||	ft_strcmp(line, "rb") == 0)
 			r_rule(base, line);
@@ -26,6 +35,7 @@ void	gnl(t_base *base)
 			s_rule(base, line);
 		if (ft_strcmp(line, "pa") == 0 || ft_strcmp(line, "pb") == 0)
 			p_rule(base, line);
+		check_valid_rule(line);
 		free(line);
 		line = NULL;
 	}

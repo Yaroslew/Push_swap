@@ -17,7 +17,7 @@ int main(int ac, char **av)
 	t_base *base;
 
 	if (ac < 2)
-		return (0);
+		show_mess(1);
 	base = init_base();
 	check_str(av, ac, base);
 
