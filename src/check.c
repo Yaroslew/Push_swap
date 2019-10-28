@@ -21,6 +21,8 @@ void	check_word(char *str, t_base *base)
 	{
 		if ((str[q] < '0' || str[q] > '9') && str[q] != ' ' && str[q] != '\t' && str[q] != '-')
 			result_ok(-3);
+		if (str[q] == '-' && (str[q + 1] < '0' || str[q + 1] > '9'))
+			result_ok(-3);
 		if ((str[q] == ' ' || str[q] == '\t' || str[q] == '-') && (str[q + 1] >= '0' && str[q + 1] <= '9'))
 			init_stek_a(base, str, q);
 		else if (q == 0 && (str[q] >= '0' && str[q] <= '9'))
@@ -52,6 +54,7 @@ void	check_duplicate(t_base *base)
 	int pizdec;
 
 	q = 0;
+	r = 0;
 	sum = base->temp;
 	while (r < base->size_stek_a)
 	{

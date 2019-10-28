@@ -77,7 +77,6 @@ void	pre_sort(t_base *base)
 void	write_instruction_start(t_base *base)
 {
 	int q;
-	char *temp_str;
 	t_nod	*check;
 
 	q = 0;

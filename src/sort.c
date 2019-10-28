@@ -99,3 +99,4 @@ void	release_step(t_base *base)
 	}
 	save_release(base);
 }
+

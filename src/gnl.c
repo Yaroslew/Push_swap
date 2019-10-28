@@ -12,19 +12,21 @@
 
 #include "../includes/push_swap.h"
 
-int			check_true_sort(t_base *base)
+void	gnl(t_base *base)
 {
-	int		q;
-	t_nod	*check;
+	char *line;
 
-	q = 0;
-	check = base->temp;
-	while (q < base->size_stek_a - 1)
+	while (get_next_line(1, &line))
 	{
-		if (check->data > check->next->data)
-			return (0);
-		check = check->next;
-		q++;
+		if (ft_strcmp(line, "rr") == 0 || ft_strcmp(line, "ra") == 0 ||	ft_strcmp(line, "rb") == 0)
+			r_rule(base, line);
+		if (ft_strcmp(line, "rrr") == 0 || ft_strcmp(line, "rra") == 0 ||	ft_strcmp(line, "rrb") == 0)
+			rr_rule(base, line);
+		if (ft_strcmp(line, "sa") == 0 || ft_strcmp(line, "sb") == 0 ||	ft_strcmp(line, "ss") == 0)
+			s_rule(base, line);
+		if (ft_strcmp(line, "pa") == 0 || ft_strcmp(line, "pb") == 0)
+			p_rule(base, line);
+		free(line);
+		line = NULL;
 	}
-	return (1);
 }

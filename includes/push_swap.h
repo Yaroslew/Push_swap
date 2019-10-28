@@ -34,23 +34,15 @@ typedef struct s_base
 
 	int			size_stek_a;
 	int			size_stek_b;
-
 	int			max;
 	int			min;
 	char		*res;
-
 	int			save_turns;
 	int			count_turns;
-
 	char		*save_rules;
 	char 		*buf_rules;
-
 	int			delta_a;
 	int			delta_b;
-
-//	int			ind_a;
-//	int			ind_b;
-
 }				t_base;
 
 
@@ -59,6 +51,8 @@ t_base	*init_base();
 void	check_str(char **str, int size, t_base *base);
 void	check_word(char *str, t_base *base);
 void	check_duplicate(t_base *base);
+void	check_long_int(int data, char *str, int q);
+int		check_true_sort(t_base *base);
 
 void	init_stek_a(t_base *base, char *str, int q);
 void	write_min_max(t_base *base);
@@ -88,9 +82,7 @@ void	step_alone_a(t_base *base);
 void	step_alone_b(t_base *base);
 
 void	final_sort(t_base *base);
-void	check_true_sort(t_base *base);
-void	check_long_int(int data, char *str, int q);
-
+void	gnl(t_base *base);
 void	free_base(t_base *base);
 
 void	print_list(t_base *base);
