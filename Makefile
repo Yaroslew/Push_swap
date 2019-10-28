@@ -1,7 +1,9 @@
-NAME = push_swap
+NAME1 = push_swap
+NAME2 = checker
 
 SRC = ./src
 OBJ = ./obj
+OBJ2 = ./obj_c
 LIB = ./libft
 
 SRC_FILES = main.c\
@@ -18,8 +20,20 @@ SRC_FILES = main.c\
 			check_true_sort.c\
 			free.c
 
+SRC_FILES2 = init.c\
+			main_checker.c\
+			check.c\
+			list_operations.c\
+			result.c\
+			rules.c\
+			gnl.c\
+			check_true_sort.c\
+			free.c
+
 SRCS 		= $(addprefix $(SRC)/, $(SRC_FILES))
 OBJS		= $(addprefix $(OBJ)/, $(SRC_FILES:c=o))
+SRCS2 		= $(addprefix $(SRC)/, $(SRC_FILES2))
+OBJS2		= $(addprefix $(OBJ2)/, $(SRC_FILES2:c=o))
 
 INC = -I ./includes
 INC_LIB = -I ./libft/includes
@@ -31,26 +45,41 @@ FLAGS = -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 
-all: DIR $(NAME)
+# ***************** targets ***************** #
 
-DIR:
-	@mkdir -p $(OBJ)
+all: dir swap checker
+
+swap: $(NAME1)
+
+checker: $(NAME2)
+
+dir:
+	@mkdir -p $(OBJ) $(OBJ2)
 	@make -C $(LIB)
 
-$(NAME): $(OBJS)
-	@gcc $(OBJS) -g $(LIB_NAME) $(LIBS_LINK) -o $(NAME)
-	@echo good compile!
 
+$(NAME1): $(OBJS)
+	@gcc $(OBJS) -g $(LIB_NAME) $(LIBS_LINK) -o $(NAME1)
+	@echo good compile push_swap!
+
+$(NAME2): $(OBJS2)
+	@gcc $(OBJS2) -g $(LIB_NAME) $(LIBS_LINK) -o $(NAME2)
+	@echo good compile checker!
 
 $(OBJ)/%.o:$(SRC)/%.c
 	@gcc -g $(FLAGS) $(INC_LIB) $(INC) -o $@ -c $<
 
+$(OBJ2)/%.o:$(SRC)/%.c
+	@gcc -g $(FLAGS) $(INC_LIB) $(INC) -o $@ -c $<
+
 clean:
 	@rm -rf $(OBJ) > /dev/null
+	@rm -rf $(OBJ2) > /dev/null
 	@make -C $(LIB) clean > /dev/null
 
 fclean: clean
-	@rm -rf $(NAME) > /dev/null
+	@rm -rf $(NAME1) > /dev/null
+	@rm -rf $(NAME2) > /dev/null
 	@make -C $(LIB) fclean > /dev/null
 
 re: fclean all
