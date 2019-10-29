@@ -10,54 +10,74 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-static void		pre_sort_stek_a(t_base *base)
+static void	norm_sec(t_base *base)
 {
-	t_nod *check;
+	s_rule(base, "sa");
+	r_rule(base, "ra");
+	r_rule(base, "ra");
+	base->res = strjoin_my(base->res, "sa\nra\nra\n");
+	return ;
+}
 
-	check = base->temp;
-	if (check->data < check->next->data && check->next->data < check->back->data)
-		return;
-	if (check->data < check->next->data && check->next->data > check->back->data && check->data < check->back->data)
+static void	norm(t_base *base, int a)
+{
+	if (a == 1)
 	{
 		s_rule(base, "sa");
 		r_rule(base, "ra");
 		base->res = strjoin_my(base->res, "sa\nra\n");
-		return;
+		return ;
 	}
-	if (check->data < check->next->data && check->next->data > check->back->data)
+	if (a == 2)
 	{
 		rr_rule(base, "rra");
 		base->res = strjoin_my(base->res, "rra\n");
-		return;
+		return ;
 	}
-	if (check->data > check->next->data && check->next->data < check->back->data && check->data < check->back->data)
+	if (a == 3)
 	{
 		s_rule(base, "sa");
 		base->res = strjoin_my(base->res, "sa\n");
-		return;
+		return ;
 	}
-	if (check->data > check->next->data && check->next->data < check->back->data)
+	if (a == 4)
+		norm_sec(base);
+}
+
+static void	pre_sort_stek_a(t_base *base)
+{
+	t_nod	*check;
+
+	check = base->temp;
+	if (check->data < check->next->data &&
+	check->next->data < check->back->data)
+		return ;
+	if (check->data < check->next->data &&
+	check->next->data > check->back->data && check->data < check->back->data)
+		norm(base, 1);
+	if (check->data < check->next->data &&
+	check->next->data > check->back->data)
+		norm(base, 2);
+	if (check->data > check->next->data &&
+	check->next->data < check->back->data && check->data < check->back->data)
+		norm(base, 3);
+	if (check->data > check->next->data &&
+	check->next->data < check->back->data)
 	{
 		r_rule(base, "ra");
 		base->res = strjoin_my(base->res, "ra\n");
-		return;
+		return ;
 	}
-	if (check->data > check->next->data && check->next->data > check->back->data)
-	{
-		s_rule(base, "sa");
-		r_rule(base, "ra");
-		r_rule(base, "ra");
-		base->res = strjoin_my(base->res, "sa\nra\nra\n");
-		return;
-	}
-
+	if (check->data > check->next->data &&
+	check->next->data > check->back->data)
+		norm(base, 4);
 }
 
-void	pre_sort(t_base *base)
+void		pre_sort(t_base *base)
 {
-	int q;
+	int		q;
 
 	q = 0;
 	base->min = base->head->data;
@@ -75,9 +95,9 @@ void	pre_sort(t_base *base)
 	pre_sort_stek_a(base);
 }
 
-void	write_instruction_start(t_base *base)
+void		write_instruction_start(t_base *base)
 {
-	int q;
+	int		q;
 	t_nod	*check;
 
 	q = 0;

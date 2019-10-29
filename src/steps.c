@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	step_down(t_base *base)
 {
 	base->delta_a *= -1;
 	base->delta_b *= -1;
-	while (base->delta_a < base->size_stek_a && base->delta_b < base->size_stek_b)
+	while (base->delta_a < base->size_stek_a &&
+	base->delta_b < base->size_stek_b)
 	{
 		base->delta_a++;
 		base->delta_b++;
 		base->count_turns++;
 		base->buf_rules = strjoin_my(base->buf_rules, "rrr\n");
 	}
-
 	if (base->delta_a == base->size_stek_a)
 		base->delta_a = 0;
 	if (base->delta_b == base->size_stek_b)
@@ -47,8 +47,7 @@ void	step_alone_a(t_base *base)
 {
 	if (base->delta_a < 0)
 	{
-		base->delta_a *= -1;
-		while (base->delta_a < base->size_stek_a - 1)
+		while (base->delta_a != 0)
 		{
 			base->delta_a++;
 			base->count_turns++;
@@ -70,8 +69,7 @@ void	step_alone_b(t_base *base)
 {
 	if (base->delta_b < 0)
 	{
-		base->delta_b *= -1;
-		while (base->delta_b < base->size_stek_b - 1)
+		while (base->delta_b != 0)
 		{
 			base->delta_b++;
 			base->count_turns++;
@@ -88,4 +86,3 @@ void	step_alone_b(t_base *base)
 		}
 	}
 }
-

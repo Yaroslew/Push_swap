@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	s_rule(t_base *base, char *str)
 {
@@ -19,7 +19,7 @@ void	s_rule(t_base *base, char *str)
 	if (ft_strcmp(str, "sa") == 0)
 	{
 		if (base->size_stek_a < 2)
-			return;
+			return ;
 		temp = base->temp->data;
 		base->temp->data = base->temp->next->data;
 		base->temp->next->data = temp;
@@ -27,7 +27,7 @@ void	s_rule(t_base *base, char *str)
 	if (ft_strcmp(str, "sb") == 0)
 	{
 		if (base->size_stek_b < 2)
-			return;
+			return ;
 		temp = base->temp_b->data;
 		base->temp_b->data = base->temp_b->next->data;
 		base->temp_b->next->data = temp;
@@ -44,25 +44,23 @@ void	p_rule(t_base *base, char *str)
 	if (ft_strcmp(str, "pa") == 0)
 	{
 		if (base->size_stek_b == 0)
-			return;
+			return ;
 		base->size_stek_b--;
 		base->size_stek_a++;
 		base->temp = add_list(base->temp);
 		base->temp->data = base->temp_b->data;
 		base->temp_b = del_list(base->temp_b);
-
 	}
 	if (ft_strcmp(str, "pb") == 0)
 	{
 		if (base->size_stek_a == 0)
-			return;
+			return ;
 		base->size_stek_b++;
 		base->size_stek_a--;
 		if (base->size_stek_b == 1)
 			base->temp_b = add_list(NULL);
 		else
 			base->temp_b = add_list(base->temp_b);
-
 		base->temp_b->data = base->temp->data;
 		base->temp = del_list(base->temp);
 	}
@@ -70,17 +68,16 @@ void	p_rule(t_base *base, char *str)
 
 void	r_rule(t_base *base, char *str)
 {
-
 	if (ft_strcmp(str, "ra") == 0)
 	{
 		if (base->size_stek_a < 2)
-			return;
+			return ;
 		base->temp = base->temp->next;
 	}
 	if (ft_strcmp(str, "rb") == 0)
 	{
 		if (base->size_stek_b < 2)
-			return;
+			return ;
 		base->temp_b = base->temp_b->next;
 	}
 	if (ft_strcmp(str, "rr") == 0)
@@ -90,18 +87,18 @@ void	r_rule(t_base *base, char *str)
 	}
 }
 
-void 	rr_rule(t_base *base, char *str)
+void	rr_rule(t_base *base, char *str)
 {
 	if (ft_strcmp(str, "rra") == 0)
 	{
 		if (base->size_stek_a < 2)
-			return;
+			return ;
 		base->temp = base->temp->back;
 	}
 	if (ft_strcmp(str, "rrb") == 0)
 	{
 		if (base->size_stek_b < 2)
-			return;
+			return ;
 		base->temp_b = base->temp_b->back;
 	}
 	if (ft_strcmp(str, "rrr") == 0)

@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-t_nod	*add_list(t_nod *now)
+t_nod		*add_list(t_nod *now)
 {
 	t_nod	*back_old;
 
@@ -33,24 +33,22 @@ t_nod	*add_list(t_nod *now)
 	return (now->back);
 }
 
-t_nod	*del_list(t_nod *now)
+t_nod		*del_list(t_nod *now)
 {
 	t_nod	*del;
 	t_nod	*save_next;
 
 	del = now;
 	save_next = now->next;
-
 	now->next->back = now->back;
 	now->back->next = save_next;
 	free(del);
-
 	return (save_next);
 }
 
-void	write_min_max(t_base *base)
+void		write_min_max(t_base *base)
 {
-	int q;
+	int		q;
 	t_nod	*check;
 
 	q = 0;
@@ -65,4 +63,3 @@ void	write_min_max(t_base *base)
 		q++;
 	}
 }
-

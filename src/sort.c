@@ -10,18 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-void	sort(t_base *base)
+void		sort(t_base *base)
 {
-	int ind_a;
-	int ind_b;
+	int		ind_a;
+	int		ind_b;
 
 	ind_a = 0;
 	ind_b = 0;
 	while (base->size_stek_b > 0)
 	{
-		base->count_turns = 0;
 		base->save_turns = -1;
 		while (ind_a < base->size_stek_a)
 		{
@@ -36,7 +35,6 @@ void	sort(t_base *base)
 		ind_a = 0;
 		release_step(base);
 	}
-
 }
 
 static void	release_rule(t_base *base, char sym, int rule)
@@ -45,7 +43,6 @@ static void	release_rule(t_base *base, char sym, int rule)
 	{
 		if (sym == 'a')
 			rr_rule(base, "rra");
-
 		if (sym == 'b')
 			rr_rule(base, "rrb");
 		if (sym == 'r')
@@ -62,7 +59,7 @@ static void	release_rule(t_base *base, char sym, int rule)
 	}
 }
 
-static void save_release(t_base *base)
+static void	save_release(t_base *base)
 {
 	if (base->save_rules)
 	{
@@ -74,10 +71,10 @@ static void save_release(t_base *base)
 	p_rule(base, "pa");
 }
 
-void	release_step(t_base *base)
+void		release_step(t_base *base)
 {
-	int q;
-	int n;
+	int		q;
+	int		n;
 
 	q = 0;
 	n = 0;
@@ -94,9 +91,7 @@ void	release_step(t_base *base)
 				n = q + 1;
 			}
 			q++;
-
 		}
 	}
 	save_release(base);
 }
-

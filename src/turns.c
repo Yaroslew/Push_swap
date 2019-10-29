@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "push_swap.h"
 
 static void	save_temp_result(t_base *base)
 {
@@ -23,8 +23,8 @@ static void	save_temp_result(t_base *base)
 
 static int	delta(t_base *base, int ex, int stek)
 {
-	int up;
-	int down;
+	int		up;
+	int		down;
 
 	up = ex;
 	if (stek == 1)
@@ -34,8 +34,7 @@ static int	delta(t_base *base, int ex, int stek)
 	if (down < up)
 		return (down * -1);
 	else
-		return (up);
-
+		return (ex);
 }
 
 static int	check_position(t_base *base, int a, int b)
@@ -59,17 +58,14 @@ static int	check_position(t_base *base, int a, int b)
 		return (1);
 	else
 		return (0);
-
 }
 
-void	count_turns(t_base *base, int a, int b)
+void		count_turns(t_base *base, int a, int b)
 {
 	if (check_position(base, a, b) == 0)
-		return;
+		return ;
 	base->delta_a = delta(base, a, 1);
 	base->delta_b = delta(base, b, 2);
-
-
 	if (base->delta_a < 0 && base->delta_b < 0 && base->size_stek_b > 1)
 		step_down(base);
 	if (base->delta_a > 0 && base->delta_b > 0 && base->size_stek_b > 1)
@@ -78,7 +74,6 @@ void	count_turns(t_base *base, int a, int b)
 		step_alone_a(base);
 	if (base->delta_b != 0 && base->delta_b != base->size_stek_b)
 		step_alone_b(base);
-
 	if (base->count_turns < base->save_turns || base->save_turns == -1)
 		save_temp_result(base);
 	else
@@ -86,4 +81,5 @@ void	count_turns(t_base *base, int a, int b)
 		free(base->buf_rules);
 		base->buf_rules = NULL;
 	}
+	base->count_turns = 0;
 }

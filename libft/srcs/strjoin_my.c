@@ -10,17 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * соединяет первую и вторую строку, зафришив предыдущие.
- * Возвращает NULL, если обе строки NULL.
- *
- */
-
 #include "../includes/libft.h"
+
+static int	normin(char *res, int q, int r, char *first)
+{
+	while (first[q])
+	{
+		res[r] = first[q];
+		q++;
+		r++;
+	}
+	q = 0;
+	free(first);
+	first = NULL;
+	return (r);
+}
 
 static int	sum_len(char *str)
 {
-	int q;
+	int		q;
 
 	q = 0;
 	if (str == NULL)
@@ -29,12 +37,12 @@ static int	sum_len(char *str)
 	return (q);
 }
 
-char	*strjoin_my(char *first, char *second)
+char		*strjoin_my(char *first, char *second)
 {
-	int q;
-	int r;
-	char *res;
-	int sum;
+	int		q;
+	int		r;
+	char	*res;
+	int		sum;
 
 	q = 0;
 	r = 0;
@@ -44,17 +52,7 @@ char	*strjoin_my(char *first, char *second)
 	if (!(res = malloc(sizeof(char) * (sum + 1))))
 		return (NULL);
 	if (first != NULL)
-	{
-		while (first[q])
-		{
-			res[r] = first[q];
-			q++;
-			r++;
-		}
-		q = 0;
-		free(first);
-		first = NULL;
-	}
+		r = normin(res, q, r, first);
 	if (second != NULL)
 	{
 		while (second[q])

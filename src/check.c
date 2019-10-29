@@ -12,18 +12,20 @@
 
 #include "../includes/push_swap.h"
 
-void	check_word(char *str, t_base *base)
+void		check_word(char *str, t_base *base)
 {
-	int q;
+	int		q;
 
 	q = 0;
 	while (str[q])
 	{
-		if ((str[q] < '0' || str[q] > '9') && str[q] != ' ' && str[q] != '\t' && str[q] != '-')
+		if ((str[q] < '0' || str[q] > '9') && str[q] != ' ' && str[q] !=
+		'\t' && str[q] != '-')
 			result_ok(-3);
 		if (str[q] == '-' && (str[q + 1] < '0' || str[q + 1] > '9'))
 			result_ok(-3);
-		if ((str[q] == ' ' || str[q] == '\t' || str[q] == '-') && (str[q + 1] >= '0' && str[q + 1] <= '9'))
+		if ((str[q] == ' ' || str[q] == '\t' || str[q] == '-') &&
+		(str[q + 1] >= '0' && str[q + 1] <= '9'))
 			init_stek_a(base, str, q);
 		else if (q == 0 && (str[q] >= '0' && str[q] <= '9'))
 			init_stek_a(base, str, q);
@@ -31,9 +33,9 @@ void	check_word(char *str, t_base *base)
 	}
 }
 
-void	check_str(char **str, int size, t_base *base)
+void		check_str(char **str, int size, t_base *base)
 {
-	int q;
+	int		q;
 
 	q = 1;
 	while (q < size)
@@ -45,13 +47,13 @@ void	check_str(char **str, int size, t_base *base)
 	base->temp = base->head;
 }
 
-void	check_duplicate(t_base *base)
+void		check_duplicate(t_base *base)
 {
-	t_nod *sum;
-	t_nod *check;
-	int q;
-	int r;
-	int pizdec;
+	t_nod	*sum;
+	t_nod	*check;
+	int		q;
+	int		r;
+	int		pizdec;
 
 	q = 0;
 	r = 0;
@@ -69,16 +71,15 @@ void	check_duplicate(t_base *base)
 		}
 		sum = sum->next;
 		q = 0;
-		if (pizdec > 1)
-			result_ok(-2);
+		pizdec > 1 ? result_ok(-2) : 0;
 		r++;
 	}
 }
 
-void	check_long_int(int data, char *str)
+void		check_long_int(int data, char *str)
 {
-	char *check;
-	int	r;
+	char	*check;
+	int		r;
 
 	r = 0;
 	check = ft_itoa(data);

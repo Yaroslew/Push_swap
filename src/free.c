@@ -14,7 +14,7 @@
 
 void	free_base(t_base *base)
 {
-	int q;
+	int	q;
 
 	q = 0;
 	free(base->temp_b);

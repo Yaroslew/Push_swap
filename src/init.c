@@ -10,17 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-t_base *init_base()
+t_base		*init_base(void)
 {
-	t_base *base;
+	t_base	*base;
 
 	if (!(base = malloc(sizeof(t_base))))
 		result_ok(-1);
 	if (!(base->head = malloc(sizeof(t_nod))))
 		result_ok(-1);
-
 	base->head->next = NULL;
 	base->head->back = base->head;
 	base->temp = base->head;
@@ -30,28 +29,26 @@ t_base *init_base()
 	base->size_stek_b = 0;
 	base->res = NULL;
 	base->save_turns = -1;
-
-
 	return (base);
 }
 
-void	init_stek_a(t_base *base, char *str, int q)
+void		init_stek_a(t_base *base, char *str, int q)
 {
 	base->size_stek_a++;
 	if (!(base->head->next))
 	{
 		base->head->data = ft_atoi(str + q);
-		check_long_int(base->head->data, str, q);
+		check_long_int(base->head->data, str);
 		base->head->next = base->head;
 		base->temp = base->head->next;
 		base->max = base->head->data;
 		base->min = base->head->data;
-		return;
+		return ;
 	}
 	if (!(base->temp->next = malloc(sizeof(t_nod))))
 		result_ok(-1);
 	base->temp->next->data = ft_atoi(str + q);
-	check_long_int(base->temp->next->data, str, q);
+	check_long_int(base->temp->next->data, str);
 	base->temp->next->next = base->head;
 	base->temp->next->back = base->temp;
 	base->head->back = base->temp->next;
